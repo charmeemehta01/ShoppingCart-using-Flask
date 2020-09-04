@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Account</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+		<link href="{{ url_for('static', filename='css/style.css') }}" rel="stylesheet" type="text/css" />
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+		<style type="text/css">
+			.logo-img {
+				float: left;
+				position: relative;
+				margin: 0px 15px 0px 20px;
+			}
+			.navbar {
+				width: 100%;
+				height: 70px;
+				top: 0;
+				position: fixed;
+				background: #6699cc;
+			}
+			ul {
+				text-align: left;
+				display: inline;
+				margin: 0;
+				padding: 0;
+				list-style: none;
+				padding: relative;
+			}
+			ul li {
+				font: bold 12px/18px sans-serif;
+				display: inline-block;
+				position: relative;
+				padding: 25px 20px;
+				background: #6699cc;
+			}
+			ul li a {
+				text-decoration: none;
+				padding: 25px 20px;
+				color: white;
+				font-size: 18px;
+			}
+			ul li:hover {
+				background: #4dd0e1;
+				color: white;
+			}
+
+			/*checkout*/
+
+			.row {
+				display: -ms-flexbox; /* IE10 */
+				display: flex;
+				-ms-flex-wrap: wrap; /* IE10 */
+				flex-wrap: wrap;
+				margin: 0 -16px;
+			}
+
+			.col-25 {
+				-ms-flex: 25%; /* IE10 */
+				flex: 25%;
+			}
+
+			.col-50 {
+				-ms-flex: 50%; /* IE10 */
+				flex: 50%;
+			}
+
+			.col-75 {
+				-ms-flex: 75%; /* IE10 */
+				flex: 75%;
+			}
+
+			.col-25,
+			.col-50,
+			.col-75 {
+				padding: 0 16px;
+			}
+
+			.container {
+				background-color: #f2f2f2;
+				padding: 5px 20px 15px 20px;
+				border: 1px solid lightgrey;
+				border-radius: 3px;
+			}
+
+			input[type="text"] {
+				width: 100%;
+				margin-bottom: 20px;
+				padding: 12px;
+				border: 1px solid #ccc;
+				border-radius: 3px;
+			}
+
+			label {
+				margin-bottom: 10px;
+				display: block;
+			}
+
+			.icon-container {
+				margin-bottom: 20px;
+				padding: 7px 0;
+				font-size: 24px;
+			}
+
+			.btn {
+				background-color: #4caf50;
+				color: white;
+				padding: 12px;
+				margin: 10px 0;
+				border: none;
+				width: 100%;
+				border-radius: 3px;
+				cursor: pointer;
+				font-size: 17px;
+			}
+
+			.btn:hover {
+				background-color: #45a049;
+			}
+
+			span.price {
+				float: right;
+				color: grey;
+			}
+
+			/* Responsive layout - when the screen is less than 800px wide, make the two columns stack on top of each other instead of next to each other (and change the direction - make the "cart" column go on top) */
+			@media (max-width: 800px) {
+				.row {
+					flex-direction: column-reverse;
+				}
+				.col-25 {
+					margin-bottom: 20px;
+				}
+			}
+		</style>
+	</head>
+	<body style="margin-top: 100px;">
+		{% if status is defined and status =='updated' %}
+		<script type="text/javascript">
+			alert("Amount credited successfully");
+		</script>
+		{% endif %}
+
+		<div class="navbar">
+			<ul>
+				<li><a href="/"> Home</a></li>
+				<li><a href="view_cart">Cart</a></li>
+				{% if session['email'] %}
+				<li class="out"><a href="account">Account</a></li>
+				<li class="out"><a href="Signout">Sign out</a></li>
+				{% else %}
+				<li class="in"><a href="Signin">Sign in</a></li>
+				{% endif %}
+			</ul>
+		</div>
+		<div class="row">
+			<div class="col-75">
+				<div class="container">
+					<form action="accountUpdate" method="POST">
+						<div class="row">
+							<div class="col-50">
+								<h3>Account Information</h3>
+								<label for="fname"><i class="fa fa-user"></i> Name</label>
+								<input type="text" id="fname" name="name" value="{{ accountInfo.user_name }}" disabled />
+								<label for="email"><i class="fa fa-envelope"></i> Email</label>
+								<input type="text" id="email" name="email" value="{{ accountInfo.email }}" disabled />
+								<label for="cvv">PIN</label>
+								<input type="text" id="cvv" name="pin" value="{{ accountInfo.pin }}" disabled />
+								<label for="cvv">Balance</label>
+								<input type="text" id="account_balance" name="account_balance" value="{{ accountInfo.account_balance }}" disabled />
+							</div>
+							<div class="col-50">
+								<h3>Update Account Balance</h3>
+
+								<label for="cname">Amount:</label>
+								<input type="text" id="cname" name="update_balance" required />
+								<div class="col-25">
+									<input type="submit" value="Update" class="btn" />
+								</div>
+							</div>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

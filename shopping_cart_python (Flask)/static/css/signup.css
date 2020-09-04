@@ -1,0 +1,192 @@
+body{
+    color: #fff;
+    background: #3598dc;
+    font-family: 'Roboto', sans-serif;
+    margin-top: 100px;
+}
+.form-control{
+    height: 41px;
+    background: #f2f2f2;
+    box-shadow: none !important;
+    border: none;
+}
+.form-control:focus{
+    background: #e2e2e2;
+}
+.form-control, .btn{        
+    border-radius: 3px;
+}
+.signup-form{
+    width: 390px;
+    margin: 30px auto;
+}
+.signup-form form{
+    color: #999;
+    border-radius: 3px;
+    margin-bottom: 15px;
+    background: #fff;
+    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+    padding: 30px;
+}
+.signup-form h2 {
+    color: #333;
+    font-weight: bold;
+    margin-top: 0;
+}
+.signup-form hr {
+    margin: 0 -30px 20px;
+}    
+.signup-form .form-group{
+    margin-bottom: 20px;
+}
+.signup-form input[type="checkbox"]{
+    margin-top: 3px;
+}
+.signup-form .row div:first-child{
+    padding-right: 10px;
+}
+.signup-form .row div:last-child{
+    padding-left: 10px;
+}
+.signup-form .btn{        
+    font-size: 16px;
+    font-weight: bold;
+    background: #3598dc;
+    border: none;
+    min-width: 140px;
+}
+.signup-form .btn:hover, .signup-form .btn:focus{
+    background: #2389cd !important;
+    outline: none;
+}
+.signup-form a{
+    color: #fff;
+    text-decoration: underline;
+}
+.signup-form a:hover{
+    text-decoration: none;
+}
+.signup-form form a{
+    color: #3598dc;
+    text-decoration: none;
+}	
+.signup-form form a:hover{
+    text-decoration: underline;
+}
+.signup-form .hint-text {
+    padding-bottom: 15px;
+    text-align: center;
+}
+.modal-login {
+    color: #636363;
+    width: 350px;
+}
+.modal-login .modal-content {
+    padding: 20px;
+    border-radius: 5px;
+    border: none;
+}
+.modal-login .modal-header {
+    border-bottom: none;
+    position: relative;
+    justify-content: center;
+}
+.modal-login h4 {
+    text-align: center;
+    font-size: 26px;
+}
+.modal-login  .form-group {
+    position: relative;
+}
+.modal-login i {
+    position: absolute;
+    left: 13px;
+    top: 11px;
+    font-size: 18px;
+}
+.modal-login .form-control {
+    padding-left: 40px;
+}
+.modal-login .form-control:focus {
+    border-color: #3598dc;
+}
+.modal-login .form-control, .modal-login .btn {
+    min-height: 40px;
+    border-radius: 3px; 
+}
+.modal-login .hint-text {
+    text-align: center;
+    padding-top: 10px;
+}
+.modal-login .close {
+    position: absolute;
+    top: -5px;
+    right: -5px;
+}
+.modal-login .btn {
+    background: #3598dc;
+    border: none;
+    line-height: normal;
+}
+.modal-login .btn:hover, .modal-login .btn:focus {
+    background: #3598dc;
+}
+.modal-login .modal-footer {
+    background: #ecf0f1;
+    border-color: #dee4e7;
+    text-align: center;
+    margin: 0 -20px -20px;
+    border-radius: 5px;
+    font-size: 13px;
+    justify-content: center;
+}
+.modal-login .modal-footer a {
+    color: #999;
+}
+.trigger-btn {
+    display: inline-block;
+    margin: auto;
+}
+/*navbar*/
+.logo-img{
+    float: left;
+    position: relative;
+    margin: 0px 15px 0px 20px;
+}
+.navbar{
+    width: 100%;
+    height: 70px;
+    top:0;
+    position: fixed;
+    background:#6699cc;        
+}
+ul{
+    text-align: left;
+    display: inline;
+    margin: 0;
+    padding: 0;
+    list-style:none;
+    padding: relative;
+}
+ul li{
+    font:bold 12px/18px sans-serif;
+    display:inline-block;
+    position: relative;
+    padding: 25px 20px;
+    background: #6699cc; 
+}
+ul li a{
+    text-decoration: none;
+    padding: 25px 20px;
+    color: white;
+    font-size: 18px;
+}
+/*  ul li a:hover
+  {
+    background: red;
+  }*/
+
+ul li:hover{
+    background: #4dd0e1;
+    color: white;
+} 

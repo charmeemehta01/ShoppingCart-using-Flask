@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Home</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+		<link href="{{ url_for('static', filename='css/style.css') }}" rel="stylesheet" type="text/css" />
+
+		<style type="text/css">
+			.logo-img {
+				float: left;
+				position: relative;
+				margin: 0px 15px 0px 20px;
+			}
+			.navbar {
+				width: 100%;
+				height: 70px;
+				top: 0;
+				position: fixed;
+				background: #6699cc;
+			}
+			ul {
+				text-align: left;
+				display: inline;
+				margin: 0;
+				padding: 0;
+				list-style: none;
+				padding: relative;
+			}
+			ul li {
+				font: bold 12px/18px sans-serif;
+				display: inline-block;
+				position: relative;
+				padding: 25px 20px;
+				background: #6699cc;
+			}
+			ul li a {
+				text-decoration: none;
+				padding: 25px 20px;
+				color: white;
+				font-size: 18px;
+			}
+
+			ul li:hover {
+				background: #4dd0e1;
+				color: white;
+			}
+
+			form.example input[type="text"] {
+				font-size: 17px;
+				border: 1px solid grey;
+				float: left;
+				width: 200px;
+				height: 30px;
+				margin-left: 40%;
+				background: #f1f1f1;
+			}
+
+			form.example button {
+				float: left;
+				width: 40px;
+				height: 30px;
+				background: #6699cc;
+				color: white;
+				font-size: 17px;
+				border: 1px solid grey;
+				border-left: none;
+				cursor: pointer;
+			}
+
+			form.example button:hover {
+				background: #4dd0e1;
+			}
+			form.example::after {
+				content: "";
+				clear: both;
+				display: table;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="navbar">
+			<ul>
+				<li><a href="/"> Home</a></li>
+				<li><a href="view_cart">Cart</a></li>
+				{% if session['email'] %}
+				<li class="out"><a href="account">Account</a></li>
+				<li class="out"><a href="Signout">Sign out</a></li>
+				{% else %}
+				<li class="in"><a href="Signin">Sign in</a></li>
+				{% endif %}
+			</ul>
+		</div>
+
+		{% if pin is defined %}
+		<script type="text/javascript">
+			alert("Your PIN is: " + "{{ pin }}");
+		</script>
+		{% elif status is defined and status == 'stock_error' %}
+		<script type="text/javascript">
+			alert("Sorry, we have insufficient stocks. Please try again with fewer quantity.");
+		</script>
+		{% endif %}
+		<!-- search -->
+
+		<form class="example" action="search" method="POST" style="margin-top: 100px;">
+			<input type="text" placeholder="search" name="search" />
+			<button type="submit" name="searchbtn"><i class="fa fa-search"></i></button>
+		</form>
+
+		<div id="product-grid">
+			{% for product in products %}
+
+			<div class="product-item">
+				<form method="post" action="/add">
+					<div class="product-image"><img src="/static/images/{{ product.image_url }}" /></div>
+
+					<div class="product-tile-footer">
+						<div class="product-title">{{ product.name }}</div>
+						<div class="product-price">₹ {{ product.price }}</div>
+						<div class="cart-action">
+							<input type="hidden" name="code" value="{{ product.code }}" />
+							<input type="text" class="product-quantity" name="quantity" value="1" size="2" />
+							<input type="submit" value="Add to Cart" class="btnAddAction" />
+						</div>
+					</div>
+				</form>
+			</div>
+
+			{% endfor %}
+		</div>
+	</body>
+</html>
