@@ -1,2 +1,8 @@
-# shopping_cart_python
-Shopping cart website with account login and static wallet. Tech- Flask , MySql
+# Shopping Cart using Flask
+A simple E-commerce pharmacy website with shopping cart.
+## Features:
+1. Account Login
+2. Static Wallet
+## Dependencies:
+1. Flask
+2. MySql
