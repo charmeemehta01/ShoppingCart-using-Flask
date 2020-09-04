@@ -1,5 +1,5 @@
 # Shopping Cart using Flask
-A simple E-commerce pharmacy website with shopping cart.
+A simple e-commerce pharmacy website with shopping cart.
 ## Features:
 1. Account Login
 2. Static Wallet
